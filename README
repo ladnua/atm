@@ -1,0 +1,21 @@
+You need maven to build the solution
+mvn clean package
+
+To run the app follow these steps:
+1) go to "taget" and copy the output jar file (called like atm-1.0.0.SNAPSHOT.jar) to some another folder and rename it to atm.jar;
+2) create following empty files in the folder with atm.jar: "card reader", "cash receiver", "cash dispenser" and "server db";
+3) fill "server db" file with a table in CSV format where the 1st column should be card number (16 digits), the 2nd one - PIN code, the 3rd one - curent balance.
+For example:
+
+1234567890123456;1111;200
+0987654321123456;2222;800
+5432109876123456;3333;115
+
+4) run in the command line "java -jar atm.jar".
+
+The ATM program works with hardware abstractins. For each hardware device there is a file based stub implementation because there is no real device.
+All work with ATM devices is done via files. For example to "insert" card into the card reader you should put 16-digit number into first line of "card reader" file.
+This action will be considered as plastic card insertion into the card reader. The same about cash insertion - put a number into the "cash receiver" file to emulate real cash insertion.
+The "cash displencer" file will contain amount of withdrawn cash.
+When you finish working with the ATM the "card reader" will contain a number of ejected card. The same about cash receiver - if you cancel making a deposit the "cash receiver" file will
+contain ejected cash amount
