@@ -1,4 +1,6 @@
 You need maven to build the solution
+
+Run this command to build the solution
 mvn clean package
 
 To run the app follow these steps:
